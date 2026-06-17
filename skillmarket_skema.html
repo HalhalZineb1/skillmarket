@@ -1,0 +1,436 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#C0392B;--rl:#FAECE7;--rm:#F0997B;--txt:var(--color-text-primary);--mut:var(--color-text-secondary);--bg:var(--color-background-primary);--bg2:var(--color-background-secondary);--bdr:var(--color-border-tertiary)}
+body{font-family:'DM Sans',sans-serif;color:var(--txt)}
+.app{max-width:860px;margin:0 auto;padding:0 1.2rem 3rem}
+.page{display:none}.page.active{display:block}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 0;border-bottom:0.5px solid var(--bdr);margin-bottom:0;position:sticky;top:0;background:var(--bg);z-index:10}
+.logo-row{display:flex;align-items:center;gap:0.6rem;cursor:pointer}
+.skema-logo{height:26px;width:auto;display:block}
+.logo-sep{width:1px;height:20px;background:var(--bdr)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--red);cursor:pointer;letter-spacing:-0.5px}
+.logo sup{font-size:0.5rem;background:var(--red);color:#fff;padding:1px 5px;border-radius:100px;vertical-align:super;font-weight:500;letter-spacing:0}
+.navlinks{display:flex;align-items:center;gap:1.2rem}
+.navlinks a{font-size:0.75rem;color:var(--mut);text-decoration:none;font-weight:500;cursor:pointer;padding:0.3rem 0;border-bottom:1.5px solid transparent;transition:color 0.15s,border-color 0.15s}
+.navlinks a:hover,.navlinks a.active{color:var(--red);border-bottom-color:var(--red)}
+.ncta{background:var(--red)!important;color:#fff!important;padding:0.35rem 0.9rem!important;border-radius:100px!important;border-bottom:none!important;font-size:0.72rem!important}
+.ncta:hover{background:#a93226!important}
+
+.syne{font-family:'Syne',sans-serif}
+.tag{display:inline-block;font-size:0.65rem;font-weight:500;text-transform:uppercase;letter-spacing:0.09em;color:var(--red);background:var(--rl);padding:0.22rem 0.65rem;border-radius:100px;margin-bottom:0.5rem}
+.h1{font-family:'Syne',sans-serif;font-weight:800;font-size:2.3rem;line-height:1.1;letter-spacing:-1px;margin-bottom:0.7rem}
+.h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.6rem;letter-spacing:-0.5px;margin-bottom:0.5rem}
+.sub{font-size:0.86rem;color:var(--mut);line-height:1.65;font-weight:300;margin-bottom:1.3rem}
+.btn-r{background:var(--red);color:#fff;padding:0.6rem 1.3rem;border-radius:100px;font-size:0.8rem;font-weight:500;border:none;cursor:pointer;display:inline-block;text-decoration:none}
+.btn-o{background:transparent;color:var(--red);padding:0.6rem 1.3rem;border-radius:100px;font-size:0.8rem;font-weight:500;border:1px solid var(--red);cursor:pointer;display:inline-block}
+.btn-g{background:var(--bg2);color:var(--txt);padding:0.55rem 1.1rem;border-radius:100px;font-size:0.78rem;font-weight:500;border:0.5px solid var(--bdr);cursor:pointer;display:inline-block}
+.card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:14px;padding:1.1rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.9rem}
+.sec{padding:2.2rem 0}
+.gap{height:1rem}
+.red{color:var(--red)}
+.strike{text-decoration:line-through;opacity:0.35}
+.badge{display:inline-block;font-size:0.6rem;font-weight:500;padding:0.15rem 0.5rem;border-radius:100px}
+.b-red{background:var(--rl);color:var(--red)}
+.b-green{background:var(--color-background-success);color:var(--color-text-success)}
+.b-blue{background:var(--color-background-info);color:var(--color-text-info)}
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;flex-shrink:0}
+.stars{color:#F0997B;font-size:13px;letter-spacing:1px}
+
+/* ── HOME ── */
+.hero{padding:2.8rem 0 2rem;display:grid;grid-template-columns:1.1fr 0.9fr;gap:2.5rem;align-items:center}
+.pulse{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1.4s infinite;display:inline-block;margin-right:5px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.btns{display:flex;gap:0.7rem;flex-wrap:wrap;margin-bottom:1rem}
+.chat-card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:16px;padding:1.1rem}
+.chat-hdr{display:flex;justify-content:space-between;align-items:center;padding-bottom:0.7rem;border-bottom:0.5px solid var(--bdr);margin-bottom:0.9rem}
+.dots{display:flex;gap:4px}.dot{width:7px;height:7px;border-radius:50%}
+.d1{background:#FF5F56}.d2{background:#FFBD2E}.d3{background:#27C93F}
+.msg{display:flex;gap:7px;margin-bottom:0.6rem;align-items:flex-end}
+.msg-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:600;flex-shrink:0}
+.bubble{background:var(--bg2);border-radius:0 9px 9px 9px;padding:0.45rem 0.7rem;font-size:0.72rem;color:var(--txt);line-height:1.45;max-width:190px}
+.bubble.me{background:var(--red);color:#fff;border-radius:9px 0 9px 9px;margin-left:auto}
+.msg-r{flex-direction:row-reverse}
+.typing span{width:4px;height:4px;background:var(--mut);border-radius:50%;display:inline-block;animation:bounce 1s infinite;margin:0 1px}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.chat-foot{font-size:0.65rem;color:var(--mut);text-align:center;padding-top:0.7rem;border-top:0.5px solid var(--bdr);margin-top:0.6rem}
+.stat-row{display:flex;gap:1rem;margin-top:0.9rem;padding-top:0.9rem;border-top:0.5px solid var(--bdr)}
+.stat{flex:1;text-align:center}
+.stat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;color:var(--red)}
+.stat-l{font-size:0.63rem;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+.meme-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-top:1.3rem}
+.meme{background:var(--bg);border:0.5px solid var(--bdr);border-radius:12px;overflow:hidden}
+.meme-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:3rem;flex-direction:column;gap:4px;border-bottom:0.5px solid var(--bdr);background:var(--bg2);position:relative}
+.ml{position:absolute;font-family:'Syne',sans-serif;font-weight:700;font-size:0.65rem;text-align:center;padding:0 6px;color:var(--txt);text-transform:uppercase;letter-spacing:.05em}
+.ml.top{top:7px}.ml.bot{bottom:7px}
+.meme-cap{padding:0.7rem}
+.meme-cap h4{font-size:0.78rem;font-weight:500;margin-bottom:0.2rem}
+.meme-cap p{font-size:0.68rem;color:var(--mut);line-height:1.4;font-weight:300}
+
+/* ── CATALOGUE ── */
+.filter-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.3rem}
+.filter-btn{font-size:0.72rem;padding:0.3rem 0.8rem;border-radius:100px;border:0.5px solid var(--bdr);background:var(--bg);color:var(--mut);cursor:pointer;font-weight:500}
+.filter-btn.on{background:var(--red);color:#fff;border-color:var(--red)}
+.svc-card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:14px;padding:1.1rem;cursor:pointer;transition:border-color .15s,transform .15s}
+.svc-card:hover{border-color:var(--red);transform:translateY(-2px)}
+.svc-icon{width:36px;height:36px;background:var(--rl);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--red);margin-bottom:0.7rem}
+.svc-card h3{font-size:0.84rem;font-weight:500;margin-bottom:0.25rem}
+.svc-card p{font-size:0.72rem;color:var(--mut);line-height:1.4;font-weight:300;margin-bottom:0.6rem}
+.svc-foot{display:flex;align-items:center;justify-content:space-between}
+.svc-price{font-size:0.78rem;font-weight:500;color:var(--red)}
+.svc-n{font-size:0.65rem;color:var(--mut)}
+
+/* ── PROFIL ── */
+.profil-header{display:flex;gap:1.3rem;align-items:flex-start;padding:1.5rem 0 1rem;border-bottom:0.5px solid var(--bdr);margin-bottom:1.3rem}
+.prof-av{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;flex-shrink:0}
+.prof-meta h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:0.2rem}
+.prof-meta p{font-size:0.8rem;color:var(--mut);margin-bottom:0.5rem;font-weight:300}
+.prof-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.5rem}
+.prof-tag{font-size:0.65rem;padding:0.15rem 0.55rem;border-radius:100px;background:var(--bg2);border:0.5px solid var(--bdr);color:var(--mut)}
+.services-list .svc-item{display:flex;align-items:center;justify-content:space-between;padding:0.7rem 0;border-bottom:0.5px solid var(--bdr)}
+.svc-item-left h4{font-size:0.82rem;font-weight:500}
+.svc-item-left p{font-size:0.7rem;color:var(--mut);font-weight:300}
+.svc-item-right{text-align:right}
+.review-card{background:var(--bg2);border-radius:10px;padding:0.8rem;margin-bottom:0.6rem}
+.review-card p{font-size:0.75rem;color:var(--mut);font-style:italic;font-weight:300;margin-top:0.3rem;line-height:1.4}
+.review-meta{display:flex;align-items:center;gap:6px}
+.review-meta span{font-size:0.68rem;color:var(--mut)}
+
+/* ── COMMENT CA MARCHE ── */
+.how-step{display:flex;gap:1.2rem;align-items:flex-start;padding:1.3rem 0;border-bottom:0.5px solid var(--bdr)}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--rl);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;color:var(--red);flex-shrink:0}
+.step-body h3{font-size:0.9rem;font-weight:500;margin-bottom:0.25rem}
+.step-body p{font-size:0.78rem;color:var(--mut);line-height:1.55;font-weight:300}
+.step-emoji{font-size:1.8rem;margin-bottom:0.3rem}
+.faq-item{padding:0.9rem 0;border-bottom:0.5px solid var(--bdr);cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:0.84rem;font-weight:500}
+.faq-a{font-size:0.76rem;color:var(--mut);margin-top:0.5rem;line-height:1.55;font-weight:300;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-icon{transition:transform .2s;font-size:18px;color:var(--mut)}
+
+/* ── TARIFS ── */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem;margin-bottom:1.5rem}
+.price-card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:14px;padding:1.2rem}
+.price-card.hot{border:1.5px solid var(--red)}
+.price-label{font-size:0.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:0.4rem}
+.price-amt{font-family:'Syne',sans-serif;font-weight:800;font-size:1.9rem;color:var(--txt);line-height:1}
+.price-unit{font-size:0.7rem;color:var(--mut);margin-bottom:0.8rem}
+.price-list{list-style:none;margin-top:0.7rem}
+.price-list li{font-size:0.73rem;color:var(--mut);padding:0.25rem 0;display:flex;align-items:center;gap:0.4rem;font-weight:300}
+.price-list li i{color:var(--red);font-size:13px}
+.compare-table{width:100%;font-size:0.78rem;border-collapse:collapse}
+.compare-table th{text-align:left;font-weight:500;padding:0.6rem 0.8rem;background:var(--bg2);font-size:0.72rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.compare-table td{padding:0.55rem 0.8rem;border-bottom:0.5px solid var(--bdr);color:var(--txt)}
+.compare-table tr:last-child td{border-bottom:none}
+.tick{color:var(--color-text-success)}.cross-x{color:var(--color-text-danger)}
+
+/* ── INSCRIPTION ── */
+.auth-wrap{max-width:400px;margin:2rem auto}
+.auth-card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:16px;padding:1.8rem}
+.auth-tabs{display:flex;margin-bottom:1.5rem;border-bottom:0.5px solid var(--bdr)}
+.auth-tab{flex:1;text-align:center;padding:0.6rem;font-size:0.8rem;font-weight:500;cursor:pointer;color:var(--mut);border-bottom:2px solid transparent;margin-bottom:-0.5px}
+.auth-tab.on{color:var(--red);border-bottom-color:var(--red)}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:0.72rem;font-weight:500;color:var(--mut);margin-bottom:0.35rem;text-transform:uppercase;letter-spacing:.06em}
+.form-group input,.form-group select{width:100%;padding:0.6rem 0.8rem;border-radius:8px;border:0.5px solid var(--bdr);background:var(--bg2);font-size:0.82rem;color:var(--txt);font-family:'DM Sans',sans-serif}
+.form-hint{font-size:0.68rem;color:var(--mut);margin-top:0.3rem;font-weight:300}
+.form-check{display:flex;align-items:flex-start;gap:0.5rem;margin-bottom:1rem}
+.form-check input{margin-top:3px;flex-shrink:0}
+.form-check label{font-size:0.73rem;color:var(--mut);font-weight:300;line-height:1.4}
+.success-msg{background:var(--color-background-success);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:1rem;text-align:center;display:none}
+.success-msg h3{font-size:0.9rem;font-weight:500;color:var(--color-text-success);margin-bottom:0.3rem}
+.success-msg p{font-size:0.75rem;color:var(--mut);font-weight:300}
+</style>
+
+<div class="app">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden">Skillmarket — site complet avec navigation entre pages</h2>
+
+  <nav>
+    <div class="logo-row" onclick="go('home')">
+      <img class="skema-logo" src="data:image/jpeg;base64,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" alt="SKEMA Business School">
+      <div class="logo-sep"></div>
+      <div class="logo">Skill<span style="color:var(--color-text-primary)">market</span><sup>BETA</sup></div>
+    </div>
+    <div class="navlinks">
+      <a onclick="go('home')" id="nl-home">Accueil</a>
+      <a onclick="go('catalogue')" id="nl-catalogue">Services</a>
+      <a onclick="go('comment')" id="nl-comment">Comment ca marche</a>
+      <a onclick="go('tarifs')" id="nl-tarifs">Tarifs</a>
+      <a onclick="go('auth')" class="ncta" id="nl-auth">Rejoindre</a>
+    </div>
+  </nav>
+
+  <!-- ══ PAGE HOME ══ -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div>
+        <div class="tag"><span class="pulse"></span>SKEMA · Beta V1 · Ouvert</div>
+        <div class="h1">Appelle <span class="strike">tes parents</span><br><span class="red">un etudiant.</span></div>
+        <p class="sub">Skillmarket connecte les etudiants SKEMA entre eux. Trouve un tuteur en 3 clics, paye 3x moins cher qu'une agence, profite d'une seance d'essai 100% gratuite.</p>
+        <div class="btns">
+          <button class="btn-r" onclick="go('catalogue')">Trouver un prestataire</button>
+          <button class="btn-o" onclick="go('auth')">Vendre mes skills</button>
+        </div>
+        <div style="font-size:0.72rem;color:var(--mut)">50+ etudiants inscrits · Tarifs 10–60 €/h · Commission 12%</div>
+      </div>
+      <div class="chat-card">
+        <div class="chat-hdr">
+          <div class="dots"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem">Skillmarket Chat</div>
+          <i class="ti ti-wifi" style="font-size:13px;color:var(--mut)" aria-hidden="true"></i>
+        </div>
+        <div class="msg"><div class="msg-av" style="background:#FAECE7;color:#993C1D">LB</div><div class="bubble">J'ai un partiel demain et je comprends rien a l'algebre. HELP</div></div>
+        <div class="msg msg-r"><div class="msg-av" style="background:#EAF3DE;color:#3B6D11">TM</div><div class="bubble me">Dispo dans 1h. Seance d'essai gratuite !</div></div>
+        <div class="msg"><div class="msg-av" style="background:#FAECE7;color:#993C1D">LB</div><div class="bubble">Tu es MON SAUVEUR</div></div>
+        <div class="msg msg-r"><div class="msg-av" style="background:#EAF3CE;color:#3B6D11">TM</div><div class="bubble me">Juste un etudiant SKEMA.</div></div>
+        <div class="msg"><div class="msg-av" style="background:var(--bg2);color:var(--mut)"><i class="ti ti-robot" style="font-size:12px" aria-hidden="true"></i></div><div class="bubble"><span class="typing"><span></span><span></span><span></span></span></div></div>
+        <div class="chat-foot">Seance d'essai gratuite · 30 min · Paiement Stripe</div>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Etudiants</div></div>
+          <div class="stat"><div class="stat-n">10–60€</div><div class="stat-l">Tarifs</div></div>
+          <div class="stat"><div class="stat-n">12%</div><div class="stat-l">Commission</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="tag">Tu te reconnais ?</div>
+      <div class="h2">La vraie vie a SKEMA</div>
+      <div class="meme-grid">
+        <div class="meme"><div class="meme-img"><span>😭</span><div class="ml top">Moi a J-3 du partiel</div><div class="ml bot">qui ouvre encore Netflix</div></div><div class="meme-cap"><h4>Lucas, le deborde</h4><p>Budget 20€ max, urgence max, panique max. Solution : Skillmarket.</p></div></div>
+        <div class="meme"><div class="meme-img"><span>💪</span><div class="ml top">Mes skills sur le CV</div><div class="ml bot">zero preuve concrete</div></div><div class="meme-cap"><h4>Thomas, le Dev XP</h4><p>Sait coder, n'a rien a montrer. Skillmarket = vrais projets + vrai argent.</p></div></div>
+        <div class="meme"><div class="meme-img"><span>🏃</span><div class="ml top">Anais qui monte</div><div class="ml bot">sa 4eme asso du mois</div></div><div class="meme-cap"><h4>Anais, la project girl</h4><p>Besoin d'un logo, site, pitch deck. Maintenant. Pas une agence hors de prix.</p></div></div>
+        <div class="meme"><div class="meme-img"><span>🙈</span><div class="ml top">Sofia qui sait tout faire</div><div class="ml bot">mais ose pas facturer</div></div><div class="meme-cap"><h4>Sofia, la multicompetente</h4><p>Syndrome de l'imposteur niveau 100. La seance d'essai est son declic.</p></div></div>
+      </div>
+    </div>
+    <div style="background:var(--red);border-radius:14px;padding:1.5rem;text-align:center;color:#fff">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:0.3rem">Premiere seance = gratuite. Toujours.</div>
+      <p style="font-size:0.82rem;opacity:0.85;margin-bottom:1rem;font-weight:300">Parce qu'on sait que vous etes etudiants et que la confiance ca se merite.</p>
+      <button onclick="go('auth')" style="background:#fff;color:var(--red);padding:0.55rem 1.3rem;border-radius:100px;font-size:0.8rem;font-weight:500;border:none;cursor:pointer">Je teste maintenant</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE CATALOGUE ══ -->
+  <div class="page" id="page-catalogue">
+    <div class="sec">
+      <div class="tag">Catalogue</div>
+      <div class="h2">Tous les services</div>
+      <p class="sub">Des services penses par des etudiants SKEMA, pour des etudiants SKEMA. Tous les prestataires sont verifies.</p>
+      <div class="filter-row">
+        <button class="filter-btn on" onclick="filterSvc(this,'all')">Tous</button>
+        <button class="filter-btn" onclick="filterSvc(this,'tutorat')">Tutorat</button>
+        <button class="filter-btn" onclick="filterSvc(this,'langues')">Langues</button>
+        <button class="filter-btn" onclick="filterSvc(this,'design')">Slides & Design</button>
+        <button class="filter-btn" onclick="filterSvc(this,'coaching')">Coaching</button>
+      </div>
+      <div class="grid4" id="svc-grid">
+        <div class="svc-card" data-cat="tutorat" onclick="go('profil')">
+          <div class="svc-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+          <h3>Tutorat academique <span class="badge b-red">Le + demande</span></h3>
+          <p>Maths, stats, finance, management. Quelqu'un qui explique comme un humain.</p>
+          <div class="svc-foot"><span class="svc-price">10 – 40 €/h</span><span class="svc-n">12 prestataires</span></div>
+        </div>
+        <div class="svc-card" data-cat="langues" onclick="go('profil')">
+          <div class="svc-icon"><i class="ti ti-language" aria-hidden="true"></i></div>
+          <h3>Langues & relecture</h3>
+          <p>Fini les rapports avec des fautes. Correction pro en anglais, espagnol, francais.</p>
+          <div class="svc-foot"><span class="svc-price">5 – 25 €/h ou /doc</span><span class="svc-n">8 prestataires</span></div>
+        </div>
+        <div class="svc-card" data-cat="design" onclick="go('profil')">
+          <div class="svc-icon"><i class="ti ti-presentation" aria-hidden="true"></i></div>
+          <h3>Slides & presentations</h3>
+          <p>PowerPoint / Canva qui fait vraiment pro pour ta soutenance ou ton pitch.</p>
+          <div class="svc-foot"><span class="svc-price">15 – 60 € / projet</span><span class="svc-n">6 prestataires</span></div>
+        </div>
+        <div class="svc-card" data-cat="coaching" onclick="go('profil')">
+          <div class="svc-icon"><i class="ti ti-bulb" aria-hidden="true"></i></div>
+          <h3>Coaching methodo</h3>
+          <p>Pour ceux qui procrastinent depuis 3 semaines. Organisation, planning, methode.</p>
+          <div class="svc-foot"><span class="svc-price">20 – 40 €/h</span><span class="svc-n">4 prestataires</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE PROFIL ══ -->
+  <div class="page" id="page-profil">
+    <div style="padding-top:1.5rem">
+      <button class="btn-g" onclick="go('catalogue')" style="margin-bottom:1.2rem"><i class="ti ti-arrow-left" style="font-size:13px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>Retour au catalogue</button>
+      <div class="profil-header">
+        <div class="prof-av" style="background:#EAF3DE;color:#27500A;width:64px;height:64px;font-size:1.1rem">TM</div>
+        <div class="prof-meta">
+          <h2>Thomas M.</h2>
+          <p>MSc Marketing Data & Commerce Electronique · Paris</p>
+          <div class="prof-tags">
+            <span class="prof-tag">Dev web</span><span class="prof-tag">Python</span><span class="prof-tag">Scripts</span><span class="prof-tag">Debug</span><span class="prof-tag">E-commerce</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+            <span class="stars">★★★★★</span><span style="font-size:0.72rem;color:var(--mut)">4.9 · 23 avis</span>
+            <span class="badge b-green"><i class="ti ti-check" style="font-size:11px;vertical-align:-1px" aria-hidden="true"></i> Verifie SKEMA</span>
+            <span class="badge b-blue">Seance essai gratuite</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <button class="btn-r" onclick="go('auth')">Reserver une seance</button>
+          <div style="font-size:0.7rem;color:var(--mut);margin-top:0.4rem">Repond en moins de 2h</div>
+        </div>
+      </div>
+      <div class="grid2">
+        <div>
+          <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.8rem">Services proposes</div>
+          <div class="services-list">
+            <div class="svc-item"><div class="svc-item-left"><h4>Tutorat academique</h4><p>Maths, stats, finance</p></div><div class="svc-item-right"><div style="font-size:0.82rem;font-weight:500;color:var(--red)">15–30 €/h</div><div style="font-size:0.65rem;color:var(--mut)">ou essai gratuit</div></div></div>
+            <div class="svc-item"><div class="svc-item-left"><h4>Dev web & scripts</h4><p>Python, JS, debug</p></div><div class="svc-item-right"><div style="font-size:0.82rem;font-weight:500;color:var(--red)">20–40 €/h</div></div></div>
+            <div class="svc-item"><div class="svc-item-left"><h4>Slides & presentations</h4><p>PowerPoint, Canva</p></div><div class="svc-item-right"><div style="font-size:0.82rem;font-weight:500;color:var(--red)">30–50 €/projet</div></div></div>
+          </div>
+          <div style="margin-top:1.2rem">
+            <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.6rem">A propos</div>
+            <p style="font-size:0.78rem;color:var(--mut);line-height:1.55;font-weight:300">"Je sais coder mais je n'avais rien a montrer pour les recrutements. Faire des projets reels avec Skillmarket m'a aide a construire un vrai portfolio. Je reponds rapidement et je suis tres patient !"</p>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.8rem">Avis etudiants (23)</div>
+          <div class="review-card"><div class="review-meta"><div class="av" style="width:22px;height:22px;background:#FAECE7;color:#993C1D;font-size:0.55rem">LB</div><span class="stars" style="font-size:11px">★★★★★</span><span>Lucas B.</span></div><p>"Thomas m'a sauve la vie avant mon partiel de maths. Explique super bien, tres patient. Je recommande !"</p></div>
+          <div class="review-card"><div class="review-meta"><div class="av" style="width:22px;height:22px;background:#E6F1FB;color:#185FA5;font-size:0.55rem">AG</div><span class="stars" style="font-size:11px">★★★★★</span><span>Anais G.</span></div><p>"Il a cree mon site en 2 jours. Propre, rapide, pro. Beaucoup moins cher qu'une agence et bien meilleur resultat."</p></div>
+          <div class="review-card"><div class="review-meta"><div class="av" style="width:22px;height:22px;background:#FAEEDA;color:#854F0B;font-size:0.55rem">MK</div><span class="stars" style="font-size:11px">★★★★☆</span><span>Marie K.</span></div><p>"Super serieux, tient ses delais. Juste parfois un peu trop dans les details techniques mais ca reste tres bien."</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE COMMENT CA MARCHE ══ -->
+  <div class="page" id="page-comment">
+    <div class="sec">
+      <div class="tag">Processus</div>
+      <div class="h2">Comment ca marche</div>
+      <p class="sub">Plus simple que de demander a Google, plus fiable que demander a un ami qui "sait peut-etre".</p>
+      <div class="how-step"><div class="step-num">01</div><div class="step-body"><div class="step-emoji">✍️</div><h3>Cree ton profil en 2 minutes</h3><p>Inscris-toi avec ton adresse e-mail SKEMA (@skema.edu obligatoire). Indique si tu es acheteur, prestataire, ou les deux. Ajoute tes competences ou ton besoin. C'est tout.</p></div></div>
+      <div class="how-step"><div class="step-num">02</div><div class="step-body"><div class="step-emoji">🔍</div><h3>Parcours les profils verifies</h3><p>Tous les prestataires sont de vrais etudiants SKEMA verifies par la plateforme. Consulte leurs avis, leurs services, leurs tarifs. Envoie un message directement via la messagerie integree.</p></div></div>
+      <div class="how-step"><div class="step-num">03</div><div class="step-body"><div class="step-emoji">🤝</div><h3>Teste gratuitement (30 min offertes)</h3><p>Chaque prestataire propose une seance d'essai gratuite de 30 min. Tu n'aimes pas ? Tu ne paies rien et tu passes au suivant. Tu es convaincu ? Tu continues et tu paies via Stripe.</p></div></div>
+      <div class="how-step"><div class="step-num">04</div><div class="step-body"><div class="step-emoji">💸</div><h3>Paiement securise et commission transparente</h3><p>Paiement par carte via Stripe. La plateforme preleve 12% de commission automatiquement sur chaque transaction payante. Le reste va directement au prestataire. Aucune commission sur la seance d'essai.</p></div></div>
+      <div class="how-step" style="border-bottom:none"><div class="step-num">05</div><div class="step-body"><div class="step-emoji">⭐</div><h3>Note ton prestataire</h3><p>Apres chaque seance, les deux parties se notent. Le systeme de notation bilateral garantit la qualite et la confiance sur la plateforme. Plus de notes = plus de visibilite.</p></div></div>
+      <div class="gap"></div>
+      <div class="tag">FAQ</div>
+      <div class="h2">Questions frequentes</div>
+      <div class="gap"></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">C'est vraiment gratuit la premiere seance ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Oui, completement gratuit. 30 minutes offertes sur chaque prestataire. Aucune carte bancaire requise pour la seance d'essai. Si ca te convient, tu continues et tu paies.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Qui peut rejoindre Skillmarket ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Uniquement les etudiants SKEMA. L'inscription necessite une adresse @skema.edu valide. Ca garantit la qualite et la confiance sur la plateforme.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Comment sont fixes les tarifs ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">La plateforme fixe une fourchette entre 10 et 60 €/h. Dans cette fourchette, chaque prestataire fixe librement son tarif. Ni dumping ni agence hors de prix.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Et si la seance se passe mal ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Le systeme de notation bilateral protege les deux parties. En cas de litige, l'equipe Skillmarket peut intervenir. La transparence des avis permet d'eviter les mauvaises surprises.</div></div>
+      <div class="faq-item" style="border-bottom:none" onclick="toggleFaq(this)"><div class="faq-q">Je peux etre a la fois acheteur et prestataire ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Absolument. Beaucoup d'etudiants font les deux. Tu peux chercher un tuteur en maths le matin et proposer tes services en design l'apres-midi.</div></div>
+      <div class="gap"></div>
+      <div style="text-align:center;padding:1.5rem 0">
+        <button class="btn-r" onclick="go('auth')">Je me lance maintenant</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE TARIFS ══ -->
+  <div class="page" id="page-tarifs">
+    <div class="sec">
+      <div class="tag">Transparence</div>
+      <div class="h2">Des prix encadres et clairs</div>
+      <p class="sub">Fourchette fixee par la plateforme. Ni dumping entre amis, ni agence qui facture 800€/jour.</p>
+      <div class="price-grid">
+        <div class="price-card"><div class="price-label">Essai</div><div class="price-amt">0 €</div><div class="price-unit">Premiere seance · 30 min</div><ul class="price-list"><li><i class="ti ti-check" aria-hidden="true"></i>Sans engagement</li><li><i class="ti ti-check" aria-hidden="true"></i>Tous les prestataires</li><li><i class="ti ti-check" aria-hidden="true"></i>Pas de CB requise</li><li><i class="ti ti-check" aria-hidden="true"></i>Notation apres</li></ul><button class="btn-r" style="width:100%;margin-top:1rem;text-align:center" onclick="go('auth')">Commencer</button></div>
+        <div class="price-card hot"><div style="font-size:0.62rem;font-weight:500;background:var(--rl);color:var(--red);display:inline-block;padding:0.15rem 0.55rem;border-radius:100px;margin-bottom:0.4rem">Le plus populaire</div><div class="price-label">Standard</div><div class="price-amt">10–40€</div><div class="price-unit">Par heure selon service</div><ul class="price-list"><li><i class="ti ti-check" aria-hidden="true"></i>Tutorat, langues, coaching</li><li><i class="ti ti-check" aria-hidden="true"></i>Paiement securise Stripe</li><li><i class="ti ti-check" aria-hidden="true"></i>Messagerie integree</li><li><i class="ti ti-check" aria-hidden="true"></i>Systeme de notation</li></ul><button class="btn-r" style="width:100%;margin-top:1rem;text-align:center" onclick="go('auth')">Trouver un prestataire</button></div>
+        <div class="price-card"><div class="price-label">Projet</div><div class="price-amt">15–60€</div><div class="price-unit">Forfait par livrable</div><ul class="price-list"><li><i class="ti ti-check" aria-hidden="true"></i>Slides, presentations</li><li><i class="ti ti-check" aria-hidden="true"></i>Prix fixe a l'avance</li><li><i class="ti ti-check" aria-hidden="true"></i>Livrable defini</li><li><i class="ti ti-check" aria-hidden="true"></i>Commission 12% incluse</li></ul><button class="btn-r" style="width:100%;margin-top:1rem;text-align:center" onclick="go('auth')">Poster un besoin</button></div>
+      </div>
+      <div class="tag">Comparaison</div>
+      <div class="h2" style="margin-bottom:1rem">Skillmarket vs la concurrence</div>
+      <table class="compare-table">
+        <thead><tr><th>Plateforme</th><th>Tarif moyen</th><th>Confiance</th><th>Seance essai</th><th>Communaute SKEMA</th></tr></thead>
+        <tbody>
+          <tr><td>Professeurs particuliers</td><td>50–80 €/h</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr><td>Malt</td><td>350–800 €/jour</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr><td>Fiverr</td><td>5–10 000 $</td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr><td>Superprof</td><td>10–60 €/h</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr style="background:var(--rl)"><td style="font-weight:500;color:var(--red)">Skillmarket</td><td style="color:var(--red);font-weight:500">10–60 €/h</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ PAGE INSCRIPTION ══ -->
+  <div class="page" id="page-auth">
+    <div class="auth-wrap">
+      <div style="text-align:center;margin-bottom:1.5rem">
+        <div class="tag">Rejoindre Skillmarket</div>
+        <div class="h2">Cree ton compte</div>
+        <p style="font-size:0.82rem;color:var(--mut);font-weight:300">Uniquement pour les etudiants SKEMA. Adresse @skema.edu obligatoire.</p>
+      </div>
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <div class="auth-tab on" onclick="switchTab(this,'signup')">Inscription</div>
+          <div class="auth-tab" onclick="switchTab(this,'login')">Connexion</div>
+        </div>
+        <div id="signup-form">
+          <div class="form-group"><label>Prenom & Nom</label><input type="text" placeholder="Ex : Lucas Bernard"></div>
+          <div class="form-group"><label>Email SKEMA</label><input type="email" placeholder="prenom.nom@skema.edu"><div class="form-hint">Adresse @skema.edu uniquement. Les autres seront refuses.</div></div>
+          <div class="form-group"><label>Programme</label><select><option>Bachelor IA & Management</option><option>MSc International Marketing</option><option>MSc Marketing Data & E-commerce</option><option>MSc Finance</option><option>Autre MSc</option></select></div>
+          <div class="form-group"><label>Je veux</label><select><option>Trouver un prestataire</option><option>Proposer mes services</option><option>Les deux</option></select></div>
+          <div class="form-check"><input type="checkbox" id="cgu"><label for="cgu">J'accepte les conditions d'utilisation et la politique de confidentialite de Skillmarket.</label></div>
+          <button class="btn-r" style="width:100%;text-align:center" onclick="showSuccess()">Creer mon compte gratuitement</button>
+          <div style="text-align:center;margin-top:0.8rem;font-size:0.7rem;color:var(--mut)">Premiere seance offerte · Paiement securise par Stripe</div>
+        </div>
+        <div id="login-form" style="display:none">
+          <div class="form-group"><label>Email SKEMA</label><input type="email" placeholder="prenom.nom@skema.edu"></div>
+          <div class="form-group"><label>Mot de passe</label><input type="password" placeholder="••••••••"></div>
+          <button class="btn-r" style="width:100%;text-align:center;margin-bottom:0.8rem" onclick="showSuccess()">Se connecter</button>
+          <div style="text-align:center;font-size:0.72rem;color:var(--mut)">Mot de passe oublie ? <span style="color:var(--red);cursor:pointer">Reinitialiser</span></div>
+        </div>
+        <div class="success-msg" id="success-msg">
+          <h3>Bienvenue sur Skillmarket !</h3>
+          <p>Ton compte a ete cree. Verifie ton email @skema.edu pour confirmer ton inscription. Premiere seance d'essai gratuite disponible immediatement.</p>
+          <button class="btn-r" style="margin-top:0.8rem" onclick="go('catalogue')">Voir les prestataires</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:1.5rem 0 0;border-top:0.5px solid var(--bdr);margin-top:1rem;font-size:0.7rem;color:var(--mut)">
+    <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--red)">Skillmarket</span>
+    <div style="margin-top:0.6rem"><img src="data:image/jpeg;base64,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" alt="SKEMA Business School" style="height:24px;width:auto"></div>
+    <p style="margin-top:0.5rem">Projet etudiant · SKEMA Business School · 2026 · <span style="cursor:pointer;color:var(--red)" onclick="go('tarifs')">Tarifs</span> · <span style="cursor:pointer;color:var(--red)" onclick="go('comment')">Aide</span></p>
+  </footer>
+</div>
+
+<script>
+function go(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.navlinks a').forEach(a=>a.classList.remove('active'));
+  const nl=document.getElementById('nl-'+page);
+  if(nl)nl.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function filterSvc(btn,cat){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.svc-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+  });
+}
+function toggleFaq(el){
+  el.classList.toggle('open');
+}
+function switchTab(tab,form){
+  document.querySelectorAll('.auth-tab').forEach(t=>t.classList.remove('on'));
+  tab.classList.add('on');
+  document.getElementById('signup-form').style.display=form==='signup'?'block':'none';
+  document.getElementById('login-form').style.display=form==='login'?'block':'none';
+  document.getElementById('success-msg').style.display='none';
+}
+function showSuccess(){
+  document.getElementById('signup-form').style.display='none';
+  document.getElementById('login-form').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+}
+go('home');
+</script>
