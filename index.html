@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skillmarket — SKEMA Business School</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden">Skillmarket — site complet avec navigation entre pages</h2>
+
+  <nav>
+    <div class="logo-row" onclick="go('home')">
+      <img class="skema-logo" src="skema-logo.jpg" alt="SKEMA Business School">
+      <div class="logo-sep"></div>
+      <div class="logo">Skill<span style="color:var(--color-text-primary)">market</span></div>
+    </div>
+    <div class="navlinks">
+      <a onclick="go('home')" id="nl-home">Accueil</a>
+      <a onclick="go('catalogue')" id="nl-catalogue">Services</a>
+      <a onclick="go('comment')" id="nl-comment">Comment ca marche</a>
+      <a onclick="go('tarifs')" id="nl-tarifs">Tarifs</a>
+      <a onclick="go('auth')" class="ncta" id="nl-auth">Rejoindre</a>
+    </div>
+  </nav>
+
+  <!-- ══ PAGE HOME ══ -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div>
+        <div class="tag"><span class="pulse"></span>SKEMA</div>
+        <div class="h1">Appelle <span class="strike">tes parents</span><br><span class="red">un etudiant.</span></div>
+        <p class="sub">Il est 23h, le partiel est demain et personne ne repond sur le groupe WhatsApp. Skillmarket te trouve un etudiant SKEMA qui maitrise le sujet, en 3 clics et 3 fois moins cher qu'une agence. Premiere seance gratuite, sans carte bancaire.</p>
+        <div class="btns">
+          <button class="btn-r" onclick="go('catalogue')">Trouver un prestataire</button>
+          <button class="btn-o" onclick="go('auth')">Vendre mes skills</button>
+        </div>
+        <div style="font-size:0.72rem;color:var(--mut)">50+ etudiants inscrits · Tarifs 10–60 €/h · Commission 12%</div>
+      </div>
+      <div class="chat-card">
+        <div class="chat-hdr">
+          <div class="dots"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem">Skillmarket Chat</div>
+          <i class="ti ti-wifi" style="font-size:13px;color:var(--mut)" aria-hidden="true"></i>
+        </div>
+        <div class="msg"><div class="msg-av" style="background:#FAECE7;color:#993C1D">LB</div><div class="bubble">J'ai un partiel demain et je comprends rien a l'algebre. HELP</div></div>
+        <div class="msg msg-r"><div class="msg-av" style="background:#EAF3DE;color:#3B6D11">TM</div><div class="bubble me">Dispo dans 1h. Seance d'essai gratuite !</div></div>
+        <div class="msg"><div class="msg-av" style="background:#FAECE7;color:#993C1D">LB</div><div class="bubble">Tu es MON SAUVEUR</div></div>
+        <div class="msg msg-r"><div class="msg-av" style="background:#EAF3CE;color:#3B6D11">TM</div><div class="bubble me">Juste un etudiant SKEMA.</div></div>
+        <div class="msg"><div class="msg-av" style="background:var(--bg2);color:var(--mut)"><i class="ti ti-robot" style="font-size:12px" aria-hidden="true"></i></div><div class="bubble"><span class="typing"><span></span><span></span><span></span></span></div></div>
+        <div class="chat-foot">Seance d'essai gratuite · 30 min · Paiement Stripe</div>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Etudiants</div></div>
+          <div class="stat"><div class="stat-n">10–60€</div><div class="stat-l">Tarifs</div></div>
+          <div class="stat"><div class="stat-n">12%</div><div class="stat-l">Commission</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="tag">Tu te reconnais ?</div>
+      <div class="h2">La vraie vie a SKEMA</div>
+      <div class="meme-grid">
+        <div class="meme"><div class="meme-img"><span>😭</span><div class="ml top">Moi a J-1 du partiel de finance</div><div class="ml bot">qui ouvre Netflix quand meme</div></div><div class="meme-cap"><h4>Lucas, le deborde</h4><p>Comprend rien aux derivees depuis septembre. Tout repousse au dernier soir. Trouve un tuteur dispo en 20 minutes sur Skillmarket.</p></div></div>
+        <div class="meme"><div class="meme-img"><span>💪</span><div class="ml top">Mes skills sur le CV</div><div class="ml bot">zero ligne a montrer en entretien</div></div><div class="meme-cap"><h4>Thomas, le Dev XP</h4><p>Code en Python depuis 2 ans, jamais facture un centime. Sur Skillmarket, il decroche ses premiers vrais projets payes.</p></div></div>
+        <div class="meme"><div class="meme-img"><span>🏃</span><div class="ml top">Anais qui lance</div><div class="ml bot">sa 4eme asso du semestre</div></div><div class="meme-cap"><h4>Anais, la project girl</h4><p>4 assos lancees, zero budget design. Besoin d'un logo et d'un pitch deck pour vendredi, pas d'une agence a 2000€.</p></div></div>
+        <div class="meme"><div class="meme-img"><span>🙈</span><div class="ml top">Sofia corrige les rapports</div><div class="ml bot">de toute la promo, gratuitement</div></div><div class="meme-cap"><h4>Sofia, la multicompetente</h4><p>Parle 4 langues, relit tout le monde depuis 2 ans sans jamais facturer. La seance d'essai gratuite l'a enfin convaincue de se lancer.</p></div></div>
+      </div>
+    </div>
+    <div style="background:var(--red);border-radius:14px;padding:1.5rem;text-align:center;color:#fff">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:0.3rem">Premiere seance = gratuite. Toujours.</div>
+      <p style="font-size:0.82rem;opacity:0.85;margin-bottom:1rem;font-weight:300">Tu testes sans sortir la carte bancaire. Ca matche ? Tu continues. Sinon, retour aux revisions.</p>
+      <button onclick="go('auth')" style="background:#fff;color:var(--red);padding:0.55rem 1.3rem;border-radius:100px;font-size:0.8rem;font-weight:500;border:none;cursor:pointer">Je teste maintenant</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE CATALOGUE ══ -->
+  <div class="page" id="page-catalogue">
+    <div class="sec">
+      <div class="tag">Catalogue</div>
+      <div class="h2">Tous les services</div>
+      <p class="sub">Des services penses par des etudiants SKEMA, pour des etudiants SKEMA. Tous les prestataires sont verifies.</p>
+      <div class="filter-row">
+        <button class="filter-btn on" onclick="filterSvc(this,'all')">Tous</button>
+        <button class="filter-btn" onclick="filterSvc(this,'tutorat')">Tutorat</button>
+        <button class="filter-btn" onclick="filterSvc(this,'langues')">Langues</button>
+        <button class="filter-btn" onclick="filterSvc(this,'design')">Slides & Design</button>
+        <button class="filter-btn" onclick="filterSvc(this,'coaching')">Coaching</button>
+      </div>
+      <div class="grid4" id="svc-grid">
+        <div class="svc-card" data-cat="tutorat" onclick="go('profil')">
+          <div class="svc-cover c-red"><i class="ti ti-school" aria-hidden="true"></i></div>
+          <h3>Tutorat academique <span class="badge b-red">Le + demande</span></h3>
+          <p>Maths, stats, finance, management. Quelqu'un qui explique comme un humain.</p>
+          <div class="svc-foot"><span class="svc-price">10 – 40 €/h</span><span class="svc-n">12 prestataires</span></div>
+        </div>
+        <div class="svc-card" data-cat="langues" onclick="go('profil')">
+          <div class="svc-cover c-blue"><i class="ti ti-language" aria-hidden="true"></i></div>
+          <h3>Langues & relecture</h3>
+          <p>Fini les rapports avec des fautes. Correction pro en anglais, espagnol, francais.</p>
+          <div class="svc-foot"><span class="svc-price">5 – 25 €/h ou /doc</span><span class="svc-n">8 prestataires</span></div>
+        </div>
+        <div class="svc-card" data-cat="design" onclick="go('profil')">
+          <div class="svc-cover c-gold"><i class="ti ti-presentation" aria-hidden="true"></i></div>
+          <h3>Slides & presentations</h3>
+          <p>PowerPoint / Canva qui fait vraiment pro pour ta soutenance ou ton pitch.</p>
+          <div class="svc-foot"><span class="svc-price">15 – 60 € / projet</span><span class="svc-n">6 prestataires</span></div>
+        </div>
+        <div class="svc-card" data-cat="coaching" onclick="go('profil')">
+          <div class="svc-cover c-green"><i class="ti ti-bulb" aria-hidden="true"></i></div>
+          <h3>Coaching methodo</h3>
+          <p>Pour ceux qui procrastinent depuis 3 semaines. Organisation, planning, methode.</p>
+          <div class="svc-foot"><span class="svc-price">20 – 40 €/h</span><span class="svc-n">4 prestataires</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE PROFIL ══ -->
+  <div class="page" id="page-profil">
+    <div style="padding-top:1.5rem">
+      <button class="btn-g" onclick="go('catalogue')" style="margin-bottom:1.2rem"><i class="ti ti-arrow-left" style="font-size:13px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>Retour au catalogue</button>
+      <div class="profil-header">
+        <div class="prof-av" style="background:#EAF3DE;color:#27500A;width:64px;height:64px;font-size:1.1rem">TM</div>
+        <div class="prof-meta">
+          <h2>Thomas M.</h2>
+          <p>MSc Marketing Data & Commerce Electronique · Paris</p>
+          <div class="prof-tags">
+            <span class="prof-tag">Dev web</span><span class="prof-tag">Python</span><span class="prof-tag">Scripts</span><span class="prof-tag">Debug</span><span class="prof-tag">E-commerce</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+            <span class="stars">★★★★★</span><span style="font-size:0.72rem;color:var(--mut)">4.9 · 23 avis</span>
+            <span class="badge b-green"><i class="ti ti-check" style="font-size:11px;vertical-align:-1px" aria-hidden="true"></i> Verifie SKEMA</span>
+            <span class="badge b-blue">Seance essai gratuite</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <button class="btn-r" onclick="go('auth')">Reserver une seance</button>
+          <div style="font-size:0.7rem;color:var(--mut);margin-top:0.4rem">Repond en moins de 2h</div>
+        </div>
+      </div>
+      <div class="grid2">
+        <div>
+          <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.8rem">Services proposes</div>
+          <div class="services-list">
+            <div class="svc-item"><div class="svc-item-left"><h4>Tutorat academique</h4><p>Maths, stats, finance</p></div><div class="svc-item-right"><div style="font-size:0.82rem;font-weight:500;color:var(--red)">15–30 €/h</div><div style="font-size:0.65rem;color:var(--mut)">ou essai gratuit</div></div></div>
+            <div class="svc-item"><div class="svc-item-left"><h4>Dev web & scripts</h4><p>Python, JS, debug</p></div><div class="svc-item-right"><div style="font-size:0.82rem;font-weight:500;color:var(--red)">20–40 €/h</div></div></div>
+            <div class="svc-item"><div class="svc-item-left"><h4>Slides & presentations</h4><p>PowerPoint, Canva</p></div><div class="svc-item-right"><div style="font-size:0.82rem;font-weight:500;color:var(--red)">30–50 €/projet</div></div></div>
+          </div>
+          <div style="margin-top:1.2rem">
+            <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.6rem">A propos</div>
+            <p style="font-size:0.78rem;color:var(--mut);line-height:1.55;font-weight:300">"Je sais coder mais je n'avais rien a montrer pour les recrutements. Faire des projets reels avec Skillmarket m'a aide a construire un vrai portfolio. Je reponds rapidement et je suis tres patient !"</p>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.8rem">Avis etudiants (23)</div>
+          <div class="review-card"><div class="review-meta"><div class="av" style="width:22px;height:22px;background:#FAECE7;color:#993C1D;font-size:0.55rem">LB</div><span class="stars" style="font-size:11px">★★★★★</span><span>Lucas B.</span></div><p>"Thomas m'a sauve la vie avant mon partiel de maths. Explique super bien, tres patient. Je recommande !"</p></div>
+          <div class="review-card"><div class="review-meta"><div class="av" style="width:22px;height:22px;background:#E6F1FB;color:#185FA5;font-size:0.55rem">AG</div><span class="stars" style="font-size:11px">★★★★★</span><span>Anais G.</span></div><p>"Il a cree mon site en 2 jours. Propre, rapide, pro. Beaucoup moins cher qu'une agence et bien meilleur resultat."</p></div>
+          <div class="review-card"><div class="review-meta"><div class="av" style="width:22px;height:22px;background:#FAEEDA;color:#854F0B;font-size:0.55rem">MK</div><span class="stars" style="font-size:11px">★★★★☆</span><span>Marie K.</span></div><p>"Super serieux, tient ses delais. Juste parfois un peu trop dans les details techniques mais ca reste tres bien."</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE COMMENT CA MARCHE ══ -->
+  <div class="page" id="page-comment">
+    <div class="sec">
+      <div class="tag">Processus</div>
+      <div class="h2">Comment ca marche</div>
+      <p class="sub">Plus simple que de demander a Google, plus fiable que demander a un ami qui "sait peut-etre".</p>
+      <div class="how-step"><div class="step-num">01</div><div class="step-body"><div class="step-emoji">✍️</div><h3>Cree ton profil en 2 minutes</h3><p>Inscris-toi avec ton adresse e-mail SKEMA (@skema.edu obligatoire). Indique si tu es acheteur, prestataire, ou les deux. Ajoute tes competences ou ton besoin. C'est tout.</p></div></div>
+      <div class="how-step"><div class="step-num">02</div><div class="step-body"><div class="step-emoji">🔍</div><h3>Parcours les profils verifies</h3><p>Tous les prestataires sont de vrais etudiants SKEMA verifies par la plateforme. Consulte leurs avis, leurs services, leurs tarifs. Envoie un message directement via la messagerie integree.</p></div></div>
+      <div class="how-step"><div class="step-num">03</div><div class="step-body"><div class="step-emoji">🤝</div><h3>Teste gratuitement (30 min offertes)</h3><p>Chaque prestataire propose une seance d'essai gratuite de 30 min. Tu n'aimes pas ? Tu ne paies rien et tu passes au suivant. Tu es convaincu ? Tu continues et tu paies via Stripe.</p></div></div>
+      <div class="how-step"><div class="step-num">04</div><div class="step-body"><div class="step-emoji">💸</div><h3>Paiement securise et commission transparente</h3><p>Paiement par carte via Stripe. La plateforme preleve 12% de commission automatiquement sur chaque transaction payante. Le reste va directement au prestataire. Aucune commission sur la seance d'essai.</p></div></div>
+      <div class="how-step" style="border-bottom:none"><div class="step-num">05</div><div class="step-body"><div class="step-emoji">⭐</div><h3>Note ton prestataire</h3><p>Apres chaque seance, les deux parties se notent. Le systeme de notation bilateral garantit la qualite et la confiance sur la plateforme. Plus de notes = plus de visibilite.</p></div></div>
+      <div class="gap"></div>
+      <div class="tag">FAQ</div>
+      <div class="h2">Questions frequentes</div>
+      <div class="gap"></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">C'est vraiment gratuit la premiere seance ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Oui, completement gratuit. 30 minutes offertes sur chaque prestataire. Aucune carte bancaire requise pour la seance d'essai. Si ca te convient, tu continues et tu paies.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Qui peut rejoindre Skillmarket ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Uniquement les etudiants SKEMA. L'inscription necessite une adresse @skema.edu valide. Ca garantit la qualite et la confiance sur la plateforme.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Comment sont fixes les tarifs ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">La plateforme fixe une fourchette entre 10 et 60 €/h. Dans cette fourchette, chaque prestataire fixe librement son tarif. Ni dumping ni agence hors de prix.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Et si la seance se passe mal ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Le systeme de notation bilateral protege les deux parties. En cas de litige, l'equipe Skillmarket peut intervenir. La transparence des avis permet d'eviter les mauvaises surprises.</div></div>
+      <div class="faq-item" style="border-bottom:none" onclick="toggleFaq(this)"><div class="faq-q">Je peux etre a la fois acheteur et prestataire ?<i class="ti ti-plus faq-icon" aria-hidden="true"></i></div><div class="faq-a">Absolument. Beaucoup d'etudiants font les deux. Tu peux chercher un tuteur en maths le matin et proposer tes services en design l'apres-midi.</div></div>
+      <div class="gap"></div>
+      <div style="text-align:center;padding:1.5rem 0">
+        <button class="btn-r" onclick="go('auth')">Je me lance maintenant</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE TARIFS ══ -->
+  <div class="page" id="page-tarifs">
+    <div class="sec">
+      <div class="tag">Transparence</div>
+      <div class="h2">Des prix encadres et clairs</div>
+      <p class="sub">Fourchette fixee par la plateforme. Ni dumping entre amis, ni agence qui facture 800€/jour.</p>
+      <div class="price-grid">
+        <div class="price-card"><div class="price-label">Essai</div><div class="price-amt">0 €</div><div class="price-unit">Premiere seance · 30 min</div><ul class="price-list"><li><i class="ti ti-check" aria-hidden="true"></i>Sans engagement</li><li><i class="ti ti-check" aria-hidden="true"></i>Tous les prestataires</li><li><i class="ti ti-check" aria-hidden="true"></i>Pas de CB requise</li><li><i class="ti ti-check" aria-hidden="true"></i>Notation apres</li></ul><button class="btn-r" style="width:100%;margin-top:1rem;text-align:center" onclick="go('auth')">Commencer</button></div>
+        <div class="price-card hot"><div style="font-size:0.62rem;font-weight:500;background:var(--rl);color:var(--red);display:inline-block;padding:0.15rem 0.55rem;border-radius:100px;margin-bottom:0.4rem">Le plus populaire</div><div class="price-label">Standard</div><div class="price-amt">10–40€</div><div class="price-unit">Par heure selon service</div><ul class="price-list"><li><i class="ti ti-check" aria-hidden="true"></i>Tutorat, langues, coaching</li><li><i class="ti ti-check" aria-hidden="true"></i>Paiement securise Stripe</li><li><i class="ti ti-check" aria-hidden="true"></i>Messagerie integree</li><li><i class="ti ti-check" aria-hidden="true"></i>Systeme de notation</li></ul><button class="btn-r" style="width:100%;margin-top:1rem;text-align:center" onclick="go('auth')">Trouver un prestataire</button></div>
+        <div class="price-card"><div class="price-label">Projet</div><div class="price-amt">15–60€</div><div class="price-unit">Forfait par livrable</div><ul class="price-list"><li><i class="ti ti-check" aria-hidden="true"></i>Slides, presentations</li><li><i class="ti ti-check" aria-hidden="true"></i>Prix fixe a l'avance</li><li><i class="ti ti-check" aria-hidden="true"></i>Livrable defini</li><li><i class="ti ti-check" aria-hidden="true"></i>Commission 12% incluse</li></ul><button class="btn-r" style="width:100%;margin-top:1rem;text-align:center" onclick="go('auth')">Poster un besoin</button></div>
+      </div>
+      <div class="tag">Comparaison</div>
+      <div class="h2" style="margin-bottom:1rem">Skillmarket vs la concurrence</div>
+      <div class="table-wrap"><table class="compare-table">
+        <thead><tr><th>Plateforme</th><th>Tarif moyen</th><th>Confiance</th><th>Seance essai</th><th>Communaute SKEMA</th></tr></thead>
+        <tbody>
+          <tr><td>Professeurs particuliers</td><td>50–80 €/h</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr><td>Malt</td><td>350–800 €/jour</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr><td>Fiverr</td><td>5–10 000 $</td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr><td>Superprof</td><td>10–60 €/h</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td><td class="cross-x"><i class="ti ti-x" aria-hidden="true"></i></td></tr>
+          <tr style="background:var(--rl)"><td style="font-weight:500;color:var(--red)">Skillmarket</td><td style="color:var(--red);font-weight:500">10–60 €/h</td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td><td class="tick"><i class="ti ti-check" aria-hidden="true"></i></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE INSCRIPTION ══ -->
+  <div class="page" id="page-auth">
+    <div class="auth-wrap">
+      <div style="text-align:center;margin-bottom:1.5rem">
+        <div class="tag">Rejoindre Skillmarket</div>
+        <div class="h2">Cree ton compte</div>
+        <p style="font-size:0.82rem;color:var(--mut);font-weight:300">Uniquement pour les etudiants SKEMA. Adresse @skema.edu obligatoire.</p>
+      </div>
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <div class="auth-tab on" onclick="switchTab(this,'signup')">Inscription</div>
+          <div class="auth-tab" onclick="switchTab(this,'login')">Connexion</div>
+        </div>
+        <div id="signup-form">
+          <div class="form-group"><label>Prenom & Nom</label><input type="text" placeholder="Ex : Lucas Bernard"></div>
+          <div class="form-group"><label>Email SKEMA</label><input type="email" placeholder="prenom.nom@skema.edu"><div class="form-hint">Adresse @skema.edu uniquement. Les autres seront refuses.</div></div>
+          <div class="form-group"><label>Programme</label><select><option>Bachelor IA & Management</option><option>MSc International Marketing</option><option>MSc Marketing Data & E-commerce</option><option>MSc Finance</option><option>Autre MSc</option></select></div>
+          <div class="form-group"><label>Je veux</label><select><option>Trouver un prestataire</option><option>Proposer mes services</option><option>Les deux</option></select></div>
+          <div class="form-check"><input type="checkbox" id="cgu"><label for="cgu">J'accepte les conditions d'utilisation et la politique de confidentialite de Skillmarket.</label></div>
+          <button class="btn-r" style="width:100%;text-align:center" onclick="showSuccess()">Creer mon compte gratuitement</button>
+          <div style="text-align:center;margin-top:0.8rem;font-size:0.7rem;color:var(--mut)">Premiere seance offerte · Paiement securise par Stripe</div>
+        </div>
+        <div id="login-form" style="display:none">
+          <div class="form-group"><label>Email SKEMA</label><input type="email" placeholder="prenom.nom@skema.edu"></div>
+          <div class="form-group"><label>Mot de passe</label><input type="password" placeholder="••••••••"></div>
+          <button class="btn-r" style="width:100%;text-align:center;margin-bottom:0.8rem" onclick="showSuccess()">Se connecter</button>
+          <div style="text-align:center;font-size:0.72rem;color:var(--mut)">Mot de passe oublie ? <span style="color:var(--red);cursor:pointer">Reinitialiser</span></div>
+        </div>
+        <div class="success-msg" id="success-msg">
+          <h3>Bienvenue sur Skillmarket !</h3>
+          <p>Ton compte a ete cree. Verifie ton email @skema.edu pour confirmer ton inscription. Premiere seance d'essai gratuite disponible immediatement.</p>
+          <button class="btn-r" style="margin-top:0.8rem" onclick="go('catalogue')">Voir les prestataires</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:1.5rem 0 0;border-top:0.5px solid var(--bdr);margin-top:1rem;font-size:0.7rem;color:var(--mut)">
+    <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--red)">Skillmarket</span>
+    <div style="margin-top:0.6rem"><img src="skema-logo.jpg" alt="SKEMA Business School" style="height:24px;width:auto"></div>
+    <p style="margin-top:0.5rem">Projet etudiant · SKEMA Business School · 2026 · <span style="cursor:pointer;color:var(--red)" onclick="go('tarifs')">Tarifs</span> · <span style="cursor:pointer;color:var(--red)" onclick="go('comment')">Aide</span></p>
+  </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
